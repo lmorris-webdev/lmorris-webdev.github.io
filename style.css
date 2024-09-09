@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    font-size: 1.5vw;
+}
+
+#logo {
+    margin: 0px;
+    padding: 10px;
+    font-family: "Fredoka One", sans-serif;
+    width: 20%;
+}
+
+ul {
+    margin: 0px;
+}
+
+body > header {
+    background-color: orange;
+    color: white;
+    display: flex;
+    height: 12vh;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#nav-ul {
+    display: flex;
+}
+
+#nav-ul > li {
+    padding: 8px;
+    margin: 16px;
+}
+
+body > header > nav > ul {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.navbutton {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border: 1px solid white;
+    border-radius: 15%;
+}
+
+body > main article {
+    width: 70%;
+    margin: auto;
+}
+
+#main-content {
+    display: flex;
+    justify-content: space-around; 
+}
+
+#main-content > div{
+    width: 70%;
+}
+
+form {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+body > footer {
+    background-color: orange;
+    display: flex;
+}
+
+img {
+    border-radius: 50%;
+}
+
+.filter-list{
+    list-style-type: none;
+}
+
+.category-list {
+    list-style-type: none;
+}
+
+.footer-nav{
+    list-style-type: none;
+    display: flex;
+}
+
+.footer-nav > div > li {
+    margin-left: 12px;
+}
+
+.footer-nav > div > li > a {
+    color: white;
+}
