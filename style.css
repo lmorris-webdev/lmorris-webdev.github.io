@@ -1,99 +1,68 @@
+
+html, body {
+    height: 100%; /* Ensure both html and body take full height */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0px;
-    font-size: 1.5vw;
+    background-image: url('cover_image.jpg'); /* Replace with your image path */
+    background-size: cover; /* Scale the image to cover the entire background */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
+    color: #333; /* Set text color for better readability */
 }
 
-#logo {
-    margin: 0px;
-    padding: 10px;
-    font-family: "Fredoka One", sans-serif;
-    width: 20%;
+.Harry {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: none;
+    font-weight: 400;
+    font-style: normal;
 }
 
-ul {
-    margin: 0px;
+.Tom {
+    font-family: "Allura", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+p {
+    font-size: xx-large;
 }
 
 body > header {
-    background-color: orange;
-    color: white;
+    height: 10vh;
+    color: black;
+    padding: 2.5%;
+    font-size: 150%;
     display: flex;
-    height: 12vh;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
-#nav-ul {
+body > main {
     display: flex;
+    flex-direction: column; /* Stack header on top of the container */
+    /* align-items: center;  Center items horizontally */
 }
 
-#nav-ul > li {
-    padding: 8px;
-    margin: 16px;
+body > main > article {
+    width: 60%;
+    margin: 0 20%;
+    padding: 0 20%;
+    position: relative; /* Needed for absolute positioning of p elements */
+    height: calc(100vh - 5vh); /* Adjust height to fill remaining space */
+
 }
 
-body > header > nav > ul {
-    list-style-type: none;
-    text-decoration: none;
+.container > p {
+    opacity: 0; /* Start hidden */
+    transition: opacity 1s ease; /* Transition for fading */
+    top: 0; /* Align to the top */
+    text-align: center; /* Center text */
+    position: absolute; /* Stack them on top of each other */
 }
 
-.navbutton {
-    color: white;
-    text-decoration: none;
-    padding: 12px;
-    border: 1px solid white;
-    border-radius: 15%;
-}
 
-body > main article {
-    width: 70%;
-    margin: auto;
-}
-
-#main-content {
-    display: flex;
-    justify-content: space-around; 
-}
-
-#main-content > div{
-    width: 70%;
-}
-
-form {
-    text-align: center;
-}
-
-h2 {
-    text-align: center;
-}
-
-body > footer {
-    background-color: orange;
-    display: flex;
-}
-
-img {
-    border-radius: 50%;
-}
-
-.filter-list{
-    list-style-type: none;
-}
-
-.category-list {
-    list-style-type: none;
-}
-
-.footer-nav{
-    list-style-type: none;
-    display: flex;
-}
-
-.footer-nav > div > li {
-    margin-left: 12px;
-}
-
-.footer-nav > div > li > a {
-    color: white;
+.container > p.active {
+    opacity: 1; /* Show the active message */
 }
