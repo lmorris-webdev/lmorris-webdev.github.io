@@ -6,36 +6,38 @@ let currentIndex = 0;
 
 // Function to show the next message
 function showNextMessage() {
-    // Hide the current message
-    messages[currentIndex].classList.remove('active');
+    // Hide all messages first
+    messages.forEach(message => {
+        message.classList.remove('active');
+    });
 
-    // Check if the current message is the last one
-    if (currentIndex === messages.length - 1) {
-        // Show the video container
+    // If there are no more messages to show, start the video
+    if (currentIndex >= messages.length) {
         videoContainer.style.display = 'block';
-
-        // Start the video at 35 seconds
-        myVideo.currentTime = 35;
-        myVideo.play(); // Start playing the video
-
-        // Stop the audio when the video starts
+        myVideo.currentTime = 35; // Start video at 35 seconds
+        myVideo.play();
         myAudio.pause();
-    } else {
-        // Set a timeout to create a gap before showing the next message
-        setTimeout(() => {
-            // Update the index to the next message
-            currentIndex = (currentIndex + 1) % messages.length;
-
-            // Show the next message
-            messages[currentIndex].classList.add('active');
-        }, 1000); // Adjust this value for the duration of the blank screen (in milliseconds)
+        return; // Exit the function
     }
+
+    // Show the current message
+    messages[currentIndex].classList.add('active');
+    
+    // Move to the next message
+    currentIndex++;
 }
 
-// Start playing the audio when the page loads
+// Play the audio on page load
 myAudio.play().catch(error => {
     console.error("Audio playback failed:", error);
 });
 
-// Start the cycle for messages
-setInterval(showNextMessage, 4000); // Total interval for each message cycle
+// Show the first message and set a timer for the rest
+showNextMessage(); // Show the first message immediately
+const messageInterval = setInterval(() => {
+    showNextMessage();
+    // If all messages have been shown, clear the interval
+    if (currentIndex >= messages.length) {
+        clearInterval(messageInterval);
+    }
+}, 4000);
